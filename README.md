@@ -8,22 +8,104 @@ The fictional retail store noticed their prices were not optimized and sought a 
 * Calculate the optimal selling prices for products to create efficient, data-driven recommendations.
 
 # Methodology
-* Data Collection: I obtained a comprehensive retail dataset from Kaggle containing 30 columns such as product categories, historical prices, quanity,volume, competitor prices,time etc.
+* Data Collection: I obtained a comprehensive retail dataset from Kaggle containing 30 columns such as product categories, historical prices, quanity,volume, competitor prices.
 * Data Extraction, Cleansing, and Transformation: To ensure the dataset was ready for analysis, I used Python for data extraction, cleansing, and transformation. The following were fixed in the dataset:
    * Changed column names "product_name_lenght" to "product_name_length", "product_description_lenght" to "product_description_length", "month_year to date" and "total_price to    revenue".
    * Converted the date format to a short date format for consistency and ease of analysis.
    * Created groups for product scores(1, 2, & 3) and consolidated them into a simplified product_score column .
 
-* Analysis: To extract insights from the dataset I conducted various SQL queries and Tableau visualizations .
+* Analysis: To extract insights from the dataset I conducted various SQL queries in MySQL server and Tableau visualizations .
 * Recommendations: Provided actionable recommendations based on insights from data analysis.
 
 # SQL Queries and Tableau Visualizations:
 
-1. Identified top selling products
+1. Identified top selling products:
 SELECT product_category_name, ROUND(SUM(revenue), 2) AS total_revenue
 FROM Retail_Data.Retail_Sales
 GROUP BY product_category_name
 ORDER BY total_revenue DESC;
-<img width="480" alt="Screenshot 2024-07-10 at 10 36 17 PM" src="https://github.com/pchetry2/Retail_Price_Optimization/assets/168946426/2e25dbe2-8d85-4098-8453-d13eff393218">
+2. Analyzing Monthly Revenue Trends:
+SELECT
+product_id, DATE_FORMAT(date, '%Y-%m') AS month,
+Round(SUM(revenue),2) AS monthly_revenue
+FROM Retail_Data.Retail_Sales
+GROUP BY 1,2
+ORDER BY 2;
+4. Average Unit Price and Competitor Prices by Product Category:
+SELECT 
+    product_category_name, 
+    ROUND(AVG(unit_price), 2) AS avg_unit_price, 
+    ROUND(AVG(comp_1), 2) AS avg_comp_1_price, 
+    ROUND(AVG(comp_2), 2) AS avg_comp_2_price, 
+    ROUND(AVG(comp_3), 2) AS avg_comp_3_price
+FROM 
+    Retail_Data.Retail_Sales
+GROUP BY 1;
+
+5. Percentage of Products Priced Lower than Competitors:
+SELECT 
+    product_id, 
+    product_category_name,
+    ROUND(SUM(CASE WHEN comp_1 > unit_price THEN 1 ELSE 0 END) / CAST(COUNT(*) AS FLOAT) * 100, 2) AS percent_lower_than_comp_1,
+    ROUND(SUM(CASE WHEN comp_2 > unit_price THEN 1 ELSE 0 END) / CAST(COUNT(*) AS FLOAT) * 100, 2) AS percent_lower_than_comp_2,
+    ROUND(SUM(CASE WHEN comp_3 > unit_price THEN 1 ELSE 0 END) / CAST(COUNT(*) AS FLOAT) * 100, 2) AS percent_lower_than_comp_3
+FROM 
+    Retail_Data.Retail_Sales
+GROUP BY 1,2;
+
+6. Sales impact when priced higher or lower than competitors:
+    SELECT 
+    product_id,
+    product_category_name,
+    ROUND(AVG(unit_price), 2) AS avg_unit_price,
+    ROUND(AVG(CASE WHEN comp_1 > unit_price THEN revenue ELSE NULL END), 2) AS avg_revenue_lower_than_comp_1,
+    ROUND(AVG(CASE WHEN comp_1 < unit_price THEN revenue ELSE NULL END), 2) AS avg_revenue_higher_than_comp_1,
+    ROUND(AVG(CASE WHEN comp_2 > unit_price THEN revenue ELSE NULL END), 2) AS avg_revenue_lower_than_comp_2,
+    ROUND(AVG(CASE WHEN comp_2 < unit_price THEN revenue ELSE NULL END), 2) AS avg_revenue_higher_than_comp_2,
+    ROUND(AVG(CASE WHEN comp_3 > unit_price THEN revenue ELSE NULL END), 2) AS avg_revenue_lower_than_comp_3,
+    ROUND(AVG(CASE WHEN comp_3 < unit_price THEN revenue ELSE NULL END), 2) AS avg_revenue_higher_than_comp_3
+FROM 
+    Retail_Data.Retail_Sales
+GROUP BY 1,2 ;
+7. Sales volume impact by Price range:
+    SELECT 
+    product_category_name,
+    SUM(CASE WHEN unit_price BETWEEN 0 AND 50 THEN qty ELSE 0 END) AS qty_sold_0_50,
+    SUM(CASE WHEN unit_price > 50 THEN qty ELSE 0 END) AS qty_sold_abv_50
+FROM 
+    Retail_Data.Retail_Sales
+GROUP BY 1;
+
+ 8. Customer Segmentation based on purchasing behavior
+WITH customer_segments AS (
+    SELECT
+        product_id,
+        SUM(qty) AS total_quantity,
+        SUM(revenue) AS total_revenue,
+        COUNT(DISTINCT customers) AS customers_count
+    FROM
+        Retail_Data.Retail_Sales
+    GROUP BY
+        product_id
+)
+SELECT
+    product_id,
+    customers_count AS unique_customers,
+    total_quantity,
+    total_revenue,
+    CASE
+        WHEN total_revenue >= 10000 THEN 'High Value Customer'
+        WHEN total_revenue >= 5000 THEN 'Medium Value Customer'
+        ELSE 'Low Value Customer'
+    END AS customer_segment
+FROM
+    customer_segments
+ORDER BY
+    total_revenue DESC;
+    
+# Visualization of the data insights
+
+
+
 
 
