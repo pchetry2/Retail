@@ -19,4 +19,10 @@ The fictional retail store noticed their prices were not optimized and sought a 
 
 # SQL Queries and Tableau Visualizations:
 
-1. 
+1. Identified top selling products
+SELECT product_category_name, ROUND(SUM(revenue), 2) AS total_revenue
+FROM Retail_Data.Retail_Sales
+GROUP BY product_category_name
+ORDER BY total_revenue DESC;
+
+
