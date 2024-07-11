@@ -104,8 +104,7 @@ ORDER BY
     total_revenue DESC;
     
 # Visualization of the data insights
-
-
+https://github.com/pchetry2/Retail_Price_Optimization/assets/168946426/99471bb0-5873-4a32-9d91-023814f8dd40
 
 
 
