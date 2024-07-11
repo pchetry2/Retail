@@ -1,6 +1,6 @@
 <img width="838" alt="Screenshot 2024-07-10 at 9 53 36 PM" src="https://github.com/pchetry2/Retail_Price_Optimization/assets/168946426/1008279a-6ed9-4481-a91e-c3848bd33c08">
 
-# PROBLEM STATEMENT
+# Problem Statement
 The fictional retail store noticed their prices were not optimized and sought a data analyst to investigate historical prices, identify crucial price factors, analyze the markets and economic contexts, and customer purchasing behavior to optimize pricing strategies.
 
 # Objectives
@@ -17,7 +17,7 @@ The fictional retail store noticed their prices were not optimized and sought a 
 * Analysis: To extract insights from the dataset I conducted various SQL queries in MySQL server and Tableau visualizations .
 * Recommendations: Provided actionable recommendations based on insights from data analysis.
 
-# SQL Queries and Tableau Visualizations:
+# SQL Queries and Tableau Visualizations
 
 1. Identified top selling products:
 SELECT product_category_name, ROUND(SUM(revenue), 2) AS total_revenue
@@ -106,5 +106,11 @@ ORDER BY
 # Visualization of the data insights
 https://github.com/pchetry2/Retail_Price_Optimization/assets/168946426/99471bb0-5873-4a32-9d91-023814f8dd40
 
+# Observations & Recommendations
+* Health & Beauty($212k)and Watches & Gifts($207k) generated the highest revenue,indicating strong presence and market demand while Consoles & Games($5.8k) and Perfumery($20k) had lower revenues.
+   Focus marketing efforts on high-performing categories to boost the sales and Investigate & improve strategies for lower-performing categories.
+* Some products like Health & Beauty and Watches & Gifts had consistent high revenues month over month, peak in December likely due to holiday season while others had sporadic sales.
+   Aligning marketing strategies & inventory planning is recommended along with the offering promotions during low revenue months to increase sales.
+* 
 
 
