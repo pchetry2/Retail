@@ -24,5 +24,6 @@ SELECT product_category_name, ROUND(SUM(revenue), 2) AS total_revenue
 FROM Retail_Data.Retail_Sales
 GROUP BY product_category_name
 ORDER BY total_revenue DESC;
+<img width="480" alt="Screenshot 2024-07-10 at 10 36 17 PM" src="https://github.com/pchetry2/Retail_Price_Optimization/assets/168946426/2e25dbe2-8d85-4098-8453-d13eff393218">
 
 
