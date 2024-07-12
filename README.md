@@ -114,12 +114,13 @@ https://github.com/pchetry2/Retail_Price_Optimization/assets/168946426/99471bb0-
 * Computers Accessories, Furniture Decor, and Bed Bath Table are generally competitively priced against most competitors, while 
 Watches Gifts, Cool Stuff, and Perfumery are priced higher than competitors, indicating a premium pricing strategy.
  Adjustment of prices for Watches Gifts, Cool Stuff, and Perfumery is recommended to better align with competitors and potentialy capture more market share.
-* Customers have purchased Health Beauty, watches & gifts ,garden tools more frequently and low count in console games & perfume categories.
-  To driven revenue on high-performing categories like garden tools, health beauty, and watches and gifts,focus marketing efforts and   promotions.
- Consider strategies to boost sales in underperforming categories like console games and perfumery, such as special discounts, bundling  offers, or targeted advertising.
+* Customers have purchased Health Beauty, watches & gifts ,garden tools more frequently and less count in console games & perfume categories.
+ Drive revenue in high-performing categories through focused marketing efforts and promotions. Consider strategies to boost sales in  underperforming categories, such as special discounts, bundling offers, or targeted advertising.
 
 
-
+# Optimal Pricing
+Optimal prices are yet to be calculated. 
+Next Step: To conduct further analysis in determining optimal pricing strategies based on market and economic factors.
 
 
 
