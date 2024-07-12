@@ -5,7 +5,7 @@ The fictional retail store noticed their prices were not optimized and sought a 
 
 # Objectives
 * Select and analyze relevant pricing key factors and their influence on prices.
-* Calculate the optimal selling prices for products to create efficient, data-driven recommendations.
+* Provide data-driven recommendations based on historical analysis and competitor pricing.
 
 # Methodology
 * Data Collection: I obtained a comprehensive retail dataset from Kaggle containing 30 columns such as product categories, historical prices, quanity,volume, competitor prices.
@@ -118,9 +118,7 @@ Watches Gifts, Cool Stuff, and Perfumery are priced higher than competitors, ind
  Drive revenue in high-performing categories through focused marketing efforts and promotions. Consider strategies to boost sales in  underperforming categories, such as special discounts, bundling offers, or targeted advertising.
 
 
-# Optimal Pricing
-Optimal prices are yet to be calculated. 
-Next Step: To conduct further analysis in determining optimal pricing strategies based on market and economic factors.
+
 
 
 
