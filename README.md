@@ -111,6 +111,18 @@ https://github.com/pchetry2/Retail_Price_Optimization/assets/168946426/99471bb0-
    Focus marketing efforts on high-performing categories to boost the sales and Investigate & improve strategies for lower-performing categories.
 * Some products like Health & Beauty and Watches & Gifts had consistent high revenues month over month, peak in December likely due to holiday season while others had sporadic sales.
    Aligning marketing strategies & inventory planning is recommended along with the offering promotions during low revenue months to increase sales.
-* 
+* Computers Accessories, Furniture Decor, and Bed Bath Table are generally competitively priced against most competitors, while 
+Watches Gifts, Cool Stuff, and Perfumery are priced higher than competitors, indicating a premium pricing strategy.
+ Adjustment of prices for Watches Gifts, Cool Stuff, and Perfumery is recommended to better align with competitors and potentialy capture more market share.
+* Customers have purchased Health Beauty, watches & gifts ,garden tools more frequently and low count in console games & perfume categories.
+  To driven revenue on high-performing categories like garden tools, health beauty, and watches and gifts,focus marketing efforts and   promotions.
+ Consider strategies to boost sales in underperforming categories like console games and perfumery, such as special discounts, bundling  offers, or targeted advertising.
+
+
+
+
+
+
+
 
 
